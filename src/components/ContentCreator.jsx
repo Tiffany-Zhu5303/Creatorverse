@@ -17,7 +17,7 @@ function ContentCreator({ user }) {
             console.log('Error deleting creator', error);
         }else{
             alert(`Deleted ${user.name}`);
-            navigate('/', {replace: true});
+            window.location.reload();
         }
     }
 
@@ -30,7 +30,7 @@ function ContentCreator({ user }) {
     }
 
     return (
-        <div className='w-full h-full flex flex-col border-white border-2 p-8 rounded' onClick={ViewCreator}>
+        <div className='w-full h-full flex flex-col border-white border-2 p-8 rounded'>
             {user.imageURL && user.imageURL.includes('https://') ? (
                 <img
                     src={user.imageURL}
@@ -58,6 +58,8 @@ function ContentCreator({ user }) {
             {user.description ? (
                 <p className='text-center mt-4'>{user.description}</p>
             ) : null}
+
+            <button onClick={ViewCreator} className='mt-4 bg-white text-black hover:bg-black hover:text-white'>View Creator</button>
         </div>
     );
 }

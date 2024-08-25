@@ -17,7 +17,7 @@ function EditCreator() {
             if(error){
                 console.log('Error fetching creator', error);
             }else{
-                setUser(data.data[0]);
+                setUser(data[0]);
             }
         }
 
